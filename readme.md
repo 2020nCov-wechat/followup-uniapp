@@ -4,7 +4,7 @@
 
 ###### wechat appId
 
-wx4967a2d91998acc2
+wxf308f14b24473080
 
 ## ui框架
 [color ui](https://github.com/weilanwl/ColorUI)

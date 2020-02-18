@@ -4,7 +4,7 @@
 		{
 			"path": "pages/motion/motiontest",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "心理评估"
 			}
 		},
 		{
@@ -16,16 +16,43 @@
 		{
 			"path": "pages/user/my",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "我的"
 			}
 		},
 		{
 			"path": "pages/user/userinfo",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "我的信息"
 			}
+		},
+		{
+			"path": "pages/user/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			},
+			"navigationStyle": "normal"
+		},
+		{
+			"path": "pages/user/fogetPass",
+			"style": {
+				"navigationBarTitleText": "忘记密码"
+			},
+			"navigationStyle": "normal"
+		},
+		{
+			"path": "pages/user/regist",
+			"style": {
+				"navigationBarTitleText": "注册"
+			},
+			"navigationStyle": "normal"
+		},
+		{
+			"path": "pages/user/aboutus",
+			"style": {
+				"navigationBarTitleText": "关于我们"
+			},
+			"navigationStyle": "normal"
 		}
-		
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

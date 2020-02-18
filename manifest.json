@@ -57,7 +57,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "wx4967a2d91998acc2",
+        "appid" : "wxf308f14b24473080",
         "setting" : {
             "urlCheck" : false
         },
@@ -71,5 +71,12 @@
     },
     "mp-toutiao" : {
         "usingComponents" : true
+    },
+    "h5" : {
+        "title" : "随访系统V2.0",
+        "router" : {
+            "base" : "/h5/visitsystem/"
+        },
+        "domain" : "cmas.aiwac.net"
     }
 }

@@ -2,7 +2,7 @@
 	<view class="bg-gradual-blue">
 		<scroll-view scroll-y class="DrawerPage" :class="modalName=='viewModal'?'show':''">
 			<view class='user'>
-				<view class='header bg-color acea-row row-between-wrapper '>
+				<view class='header bg-color acea-row row-between-wrapper'>
 					<view class='header-have-arrow'>
 						<view class="setting-view">
 							<image class="setting-img" src="../../static/imgs/setting.png" @tap="showModal" data-target="viewModal"></image>
@@ -74,22 +74,28 @@
 						<text class="text-grey">个人中心</text>
 					</view>
 				</view>
-				<view class="cu-item arrow">
+				<view class="cu-item arrow" @click="advice()">
 					<view class="content">
 						<text class="cuIcon-edit text-grey"></text>
 						<text class="text-grey">意见反馈</text>
 					</view>
 				</view>
-				<view class="cu-item arrow">
+				<view class="cu-item arrow" @click="checkUpdate()">
 					<view class="content">
 						<text class="cuIcon-pullup text-grey"></text>
 						<text class="text-grey">版本更新</text>
 					</view>
 				</view>
-				<view class="cu-item arrow">
+				<view class="cu-item arrow" @click="aboutUs()">
 					<view class="content">
 						<text class="cuIcon-github text-grey"></text>
 						<text class="text-grey">关于我们</text>
+					</view>
+				</view>
+				<view class="cu-item arrow" @click="toLogin()">
+					<view class="content">
+						<text class="cuIcon-github text-grey"></text>
+						<text class="text-grey">登录-测试</text>
 					</view>
 				</view>
 
@@ -109,6 +115,26 @@
 			};
 		},
 		methods: {
+			toLogin(){
+				uni.navigateTo({
+					url:'login'
+				})
+			},
+			checkUpdate(){
+				uni.showToast({
+					title:"已经是最新版本"
+				})
+			},
+			aboutUs(){
+				uni.navigateTo({
+					url:'aboutus'
+				})
+			},
+			advice(){
+				uni.showToast({
+					title:"敬请期待！"
+				})
+			},
 			showModal(e) {
 				this.modalName = e.currentTarget.dataset.target
 			},
