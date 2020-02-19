@@ -1,5 +1,8 @@
 <template>
 	<view class="content">
+		<view class="status_bar" style="background-color: #f1f1f1;">
+		    <!-- 这里是状态栏 -->
+		</view>
 		<uni-nav-bar left-icon="back" @clickLeft="back()" left-text="返回" background-color="#f8f8f8" title="忘记密码"></uni-nav-bar>
 		<view class="padding">
 		<view class="header">
@@ -12,18 +15,25 @@
 				<input class="biaoti" v-model="phoneno" type="number" maxlength="11" placeholder="手机号" />
 			</view>
 			<view class="list-call">
-				<image class="img" src="/static/imgs/shilu-login/2.png"></image>
-				<input class="biaoti" v-model="password" type="text" maxlength="32" placeholder="登录密码" :password="!showPassword" />
-				<image class="img" :src="showPassword?'/static/imgs/shilu-login/op.png':'/static/shilu-login/cl.png'" @tap="display"></image>
-			</view>
-			<view class="list-call">
 				<image class="img" src="/static/imgs/shilu-login/3.png"></image>
 				<input class="biaoti" v-model="code" type="number" maxlength="4" placeholder="验证码" />
 				<view class="yzm" :class="{ yzms: second>0 }" @tap="getcode">{{yanzhengma}}</view>
 			</view>
 			<view class="list-call">
+				<image class="img" src="/static/imgs/shilu-login/2.png"></image>
+				<input class="biaoti" v-model="password" type="text" maxlength="32" placeholder="登录密码" :password="!showPassword" />
+				<image class="img" :src="showPassword?'/static/imgs/shilu-login/op.png':'/static/shilu-login/cl.png'" @tap="display"></image>
+			</view>
+			
+			<view class="list-call">
 				<image class="img" src="/static/imgs/shilu-login/4.png"></image>
 				<input class="biaoti" v-model="invitation" type="text" maxlength="12" placeholder="学号" />
+			</view>
+			<view class="list-call">
+				<image class="img" src="/static/imgs/shilu-login/5.png"></image>
+				<picker class="biaoti" @change="bindPickerChange" :value="index" :range="array" range-key="name">
+					<view class="uni-input" :class="inputFlag?'text-grey':''">{{inputFlag?'学校':array[index].name}}</view>
+				</picker>
 			</view>
 			
 		</view>
@@ -71,7 +81,10 @@
 				invitation:'',
 				xieyi:true,
 				showPassword:false,
-				second:0
+				second:0,
+				array: [{name:'华中科技大学'},{name: '武汉大学'}, {name:'武汉理工大学'}, {name:'华中师范大学'}],
+				index: 0,
+				inputFlag:true,
 			};
 		},
 		computed:{
@@ -98,6 +111,11 @@
 			},
 			xieyitong(){
 				this.xieyi = !this.xieyi;
+			},
+			bindPickerChange: function(e) {
+				console.log('picker发送选择改变，携带值为：' + e.target.value)
+				this.index = e.target.value
+				this.inputFlag=false
 			},
 			getcode(){
 				if(this.second>0){

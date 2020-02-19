@@ -17,4 +17,8 @@
 	/* color ui */
 	@import "colorui/main.css";
 	@import "colorui/icon.css";
+	.status_bar {
+		  height: var(--status-bar-height);
+		  width: 100%;
+	}
 </style>

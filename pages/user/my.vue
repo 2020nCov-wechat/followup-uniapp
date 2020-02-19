@@ -1,8 +1,11 @@
 <template>
 	<view class="bg-gradual-blue">
+		<view class="status_bar" style="background-color: #f1f1f1;">
+		    <!-- 这里是状态栏 -->
+		</view>
 		<scroll-view scroll-y class="DrawerPage" :class="modalName=='viewModal'?'show':''">
 			<view class='user'>
-				<view class='header bg-color acea-row row-between-wrapper'>
+				<view class='header bg-color1 acea-row row-between-wrapper'>
 					<view class='header-have-arrow'>
 						<view class="setting-view">
 							<image class="setting-img" src="../../static/imgs/setting.png" @tap="showModal" data-target="viewModal"></image>
@@ -21,7 +24,6 @@
 						</view>
 					</view>
 				</view>
-
 				<view class='wrapper'>
 					<view class='nav acea-row row-middle'>
 						<view class='item' data-url='/pages/user_money/index'>
@@ -33,7 +35,6 @@
 							<!-- <view class='num'>{{userInfo.couponCount || 0}}</view> -->
 						</view>
 					</view>
-
 					<view class='myService'>
 						<view class='title acea-row row-middle'>综合评价</view>
 						<view class='serviceList acea-row row-middle'>
@@ -46,15 +47,10 @@
 							<view class="suggess-css">
 								<text class="text-black">评估建议：{{suggestion}}</text>
 							</view>
-
 						</view>
 					</view>
-
 				</view>
-
 			</view>
-
-
 		</scroll-view>
 		<view class="DrawerClose" :class="modalName=='viewModal'?'show':''" @tap="hideModal">
 			<text class="cuIcon-pullright"></text>
@@ -66,6 +62,7 @@
 					<view class="padding">
 						<view class="cu-avatar xl round" style="background-image:url(../../static/imgs/avatar.jpeg);"></view>
 					</view>
+					
 				</view>
 
 				<view class="cu-item arrow">
@@ -94,12 +91,16 @@
 				</view>
 				<view class="cu-item arrow" @click="toLogin()">
 					<view class="content">
-						<text class="cuIcon-github text-grey"></text>
+						<text class="cuIcon-text text-grey"></text>
 						<text class="text-grey">登录-测试</text>
 					</view>
 				</view>
-
-
+				<view class="cu-item arrow" @click="toFaceReg()">
+					<view class="content">
+						<text class="cuIcon-file text-grey"></text>
+						<text class="text-grey">人脸识别</text>
+					</view>
+				</view>
 			</view>
 		</scroll-view>
 	</view>
@@ -130,6 +131,11 @@
 					url:'aboutus'
 				})
 			},
+			toFaceReg(){
+				uni.navigateTo({
+					url:'faceReg'
+				})
+			},
 			advice(){
 				uni.showToast({
 					title:"敬请期待！"
@@ -151,7 +157,6 @@
 
 <style>
 	@import "../../common/common.css";
-
 	page {
 		background-image: var(--gradualBlue);
 		width: 100vw;

@@ -1,5 +1,8 @@
 <template>
 	<view class="content">
+		<view class="status_bar" style="background-color: #f1f1f1;">
+		    <!-- 这里是状态栏 -->
+		</view>
 		<uni-nav-bar left-icon="back" @clickLeft="back()" left-text="返回" background-color="#f8f8f8" title="忘记密码"></uni-nav-bar>
 		<view class="padding">
 			<view class="list">
@@ -9,15 +12,16 @@
 					<input class="biaoti" type="number" v-model="phoneno" maxlength="11" placeholder="请输入手机号" />
 				</view>
 				<view class="list-call">
-					<image class="img" src="/static/imgs/shilu-login/2.png"></image>
-					<input class="biaoti" type="text" v-model="password" maxlength="32" placeholder="请输入新密码" :password="!showPassword" />
-					<image class="img" :src="showPassword?'/static/shilu-login/op.png':'/static/shilu-login/cl.png'" @tap="display"></image>
-				</view>
-				<view class="list-call">
 					<image class="img" src="/static/imgs/shilu-login/3.png"></image>
 					<input class="biaoti" type="number" v-model="code" maxlength="4" placeholder="验证码" />
 					<view class="yzm" :class="{ yzms: second>0 }" @tap="getcode">{{yanzhengma}}</view>
 				</view>
+				<view class="list-call">
+					<image class="img" src="/static/imgs/shilu-login/2.png"></image>
+					<input class="biaoti" type="text" v-model="password" maxlength="32" placeholder="请输入新密码" :password="!showPassword" />
+					<image class="img" :src="showPassword?'/static/shilu-login/op.png':'/static/shilu-login/cl.png'" @tap="display"></image>
+				</view>
+				
 			</view>
 			<view class="dlbutton" hover-class="dlbutton-hover" @tap="bindLogin()">
 				<text>修改密码</text>

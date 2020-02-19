@@ -1,5 +1,8 @@
 <template>
 	<view class="content">
+		<view class="status_bar" style="background-color: #f1f1f1;">
+		    <!-- 这里是状态栏 -->
+		</view>
 		<uni-nav-bar left-icon="back" @clickLeft="back()" left-text="返回" background-color="#f8f8f8" title="关于我们"></uni-nav-bar>
 		<view class="padding">
 			<view class="list">
@@ -26,128 +29,16 @@
 </template>
 
 <script>
-	var tha, js;
 	import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
 	export default {
-		data() {
-			return {
-				phoneno: '',
-				second: 0,
-				code: "",
-				showPassword: false,
-				password: ''
-			}
-		},
-		onLoad() {
-			tha = this;
-		},
+		
 		components: {uniNavBar},
-		computed: {
-			yanzhengma() {
-				if (this.second == 0) {
-					return '获取验证码';
-				} else {
-					if (this.second < 10) {
-						return '重新获取0' + this.second;
-					} else {
-						return '重新获取' + this.second;
-					}
-				}
-			}
-		},
 		methods: {
 			back(){
 				uni.navigateBack({
 					delta:1,
 				})
 			},
-			display() {
-				this.showPassword = !this.showPassword
-			},
-			getcode() {
-				if (this.second > 0) {
-					return;
-				}
-
-				uni.request({
-					url: 'http://***/getcode.html', //仅为示例，并非真实接口地址。
-					data: {
-						phoneno: this.phoneno,
-						code_type: 'reg'
-					},
-					method: 'POST',
-					dataType: 'json',
-					success: (res) => {
-						if (res.data.code != 200) {
-							uni.showToast({
-								title: res.data.msg,
-								icon: 'none'
-							});
-							tha.second = 0;
-						} else {
-							uni.showToast({
-								title: res.data.msg
-							});
-							tha.second = 60;
-							js = setInterval(function() {
-								tha.second--;
-								if (tha.second == 0) {
-									clearInterval(js)
-								}
-							}, 1000)
-						}
-					}
-				});
-			},
-			bindLogin() {
-				if (this.phoneno.length != 11) {
-					uni.showToast({
-						icon: 'none',
-						title: '手机号不正确'
-					});
-					return;
-				}
-				if (this.password.length < 6) {
-					uni.showToast({
-						icon: 'none',
-						title: '密码不正确'
-					});
-					return;
-				}
-				if (this.code.length != 4) {
-					uni.showToast({
-						icon: 'none',
-						title: '验证码不正确'
-					});
-					return;
-				}
-				uni.request({
-					url: 'http://***/forget.html',
-					data: {
-						phoneno: this.phoneno,
-						password: this.password,
-						code: this.code
-					},
-					method: 'POST',
-					dataType: 'json',
-					success: (res) => {
-						if (res.data.code != 200) {
-							uni.showToast({
-								title: res.data.msg,
-								icon: 'none'
-							});
-						} else {
-							uni.showToast({
-								title: res.data.msg
-							});
-							setTimeout(function() {
-								uni.navigateBack();
-							}, 1500)
-						}
-					}
-				});
-
-			}
 		}
 	}
 </script>

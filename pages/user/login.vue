@@ -1,5 +1,8 @@
 <template>
 	<view class="content">
+		<view class="status_bar" style="background-color: #f1f1f1;">
+		    <!-- 这里是状态栏 -->
+		</view>
 		<uni-nav-bar left-icon="back" @clickLeft="back()" left-text="返回" background-color="#f8f8f8" title="登录"></uni-nav-bar>
 		<view class="padding">
 			<view class="header">

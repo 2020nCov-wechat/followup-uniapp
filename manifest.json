@@ -75,8 +75,8 @@
     "h5" : {
         "title" : "随访系统V2.0",
         "router" : {
-            "base" : "/h5/visitsystem/"
+            "base" : "/static/visitsystem/"
         },
-        "domain" : "cmas.aiwac.net"
+        "domain" : "aiwac.net:8013"
     }
 }

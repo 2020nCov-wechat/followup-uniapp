@@ -52,6 +52,13 @@
 				"navigationBarTitleText": "关于我们"
 			},
 			"navigationStyle": "normal"
+		},
+		{
+			"path": "pages/user/faceReg",
+			"style": {
+				"navigationBarTitleText": "人脸识别"
+			},
+			"navigationStyle": "normal"
 		}
 	],
 	"globalStyle": {
